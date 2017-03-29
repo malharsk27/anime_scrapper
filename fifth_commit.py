@@ -108,7 +108,7 @@ def download_episode(url):
     chunk_size=1
     total_size=int(response.headers.get('content-length',0));
     with open(name,'wb') as episode_file:
-        for data in tqdm(response.iter_content(chunk_size), total=total_size/chunk_size, unit='KB', unit_scale=True):   # iter_content allows us to download a large file.. It doesn't keep the whole file in memory
+        for data in tqdm(response.iter_content(chunk_size), total=total_size/chunk_size, unit='B', unit_scale=True):   # iter_content allows us to download a large file.. It doesn't keep the whole file in memory
             episode_file.write(data)
 
 
